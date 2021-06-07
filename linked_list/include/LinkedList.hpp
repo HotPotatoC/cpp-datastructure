@@ -187,11 +187,6 @@ public:
      */
     const unsigned int size() const { return this->n_size_; }
 
-    /**
-     * @brief Return the const size of the list
-     */
-    const unsigned int size() const { return this->n_size_; }
-
     friend std::ostream &operator<<(std::ostream &out, const LinkedList<element_type> &ll)
     {
         Node<element_type> *tmp_head = ll.head_.get();
