@@ -11,27 +11,49 @@ class Stack
 {
 private:
     using element_type = T;
-    std::vector<element_type> items_;
+    std::vector<element_type> elements_;
 
 public:
     Stack() = default;
-    Stack(std::vector<element_type> v) : items_(v) {}
+    Stack(std::vector<element_type> v) : elements_(v) {}
     ~Stack() = default;
 
-    void push(const element_type &&element) { this->items_.insert(this->items_.begin(), std::move(element)); }
-    void pop() { this->items_.erase(this->items_.begin()); }
+    /**
+     * @brief Add an element into the stack
+     */
+    void push(const element_type &&element) { this->elements_.insert(this->elements_.begin(), std::move(element)); }
 
-    element_type top() const { return this->items_.front(); }
-    element_type bottom() const { return this->items_.back(); }
+    /**
+     * @brief Removes the top element of the stack
+     */
+    void pop() { this->elements_.erase(this->elements_.begin()); }
 
-    unsigned int size() const { return this->items_.size(); }
+    /**
+     * @brief Return top element of the stack
+     */
+    element_type top() const { return this->elements_.front(); }
+
+    /**
+     * @brief Return bottom element of the stack
+     */
+    element_type bottom() const { return this->elements_.back(); }
+
+    /**
+     * @brief Return the size of the stack
+     */
+    unsigned int size() { return this->elements_.size(); }
+
+    /**
+     * @brief Return the const size of the stack
+     */
+    const unsigned int size() const { return this->elements_.size(); }
 
     friend std::ostream &operator<<(std::ostream &out, const Stack<element_type> &s)
     {
         out << "Top: " << s.top() << '\n';
         out << "Bottom: " << s.bottom() << '\n';
         out << "[ ";
-        for (auto &&i : s.items_)
+        for (auto &&i : s.elements_)
         {
             out << i << ", ";
         }
