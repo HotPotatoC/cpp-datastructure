@@ -8,7 +8,7 @@ struct Person
     std::string name;
     unsigned short age;
 
-    explicit Person(const std::string &name, const unsigned short &age)
+    Person(const std::string &name, const unsigned short &age)
         : name(name), age(age) {}
 
     friend std::ostream &operator<<(std::ostream &out, const Person &s)

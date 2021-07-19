@@ -21,7 +21,7 @@ struct Node
     element_type value;
     std::unique_ptr<Node> next;
 
-    explicit Node(const element_type &v)
+    Node(const element_type &v)
         : value(v), next(nullptr){};
     ~Node() = default;
 };
